@@ -1,8 +1,8 @@
 @echo off
-title = Fix 90%% load for NEED FOR SPEED HEAT. by Octanium
+title = Fix 90%% load for NFS Payback. by Octanium (edited by exyno5)
 set "CPU_Cores=0"
 set "CPU_Threads=0"
-set "UserCFGFileCDDir=%~dp0"
+set "UserCFGFileCDDir=%USERPROFILE%\Documents\Need for Speed(TM) Payback\settings\"
 set "UserCFGFileName=user.cfg"
 set "UserCFGFile=%UserCFGFileCDDir%%UserCFGFileName%"
 for /f "tokens=2 delims= " %%a in ('"wmic CPU Get DeviceID,NumberOfCores,NumberOfLogicalProcessors"') do set "CPU_Cores=%%a"
@@ -10,8 +10,8 @@ for /f "tokens=3 delims= " %%a in ('"wmic CPU Get DeviceID,NumberOfCores,NumberO
 if %CPU_Cores% == 0 goto oops_a
 echo.
 echo    Fix 90%% CPU load!
-echo    For game NEED FOR SPEED HEAT
-echo    by Octanium
+echo    For NFS Payback
+echo    by exyno5
 echo.    
 echo  ==== Your CPU ====
 echo   CPU cores  : %CPU_Cores%
@@ -32,15 +32,11 @@ echo Thread.JobThreadPriority 0 >> "%UserCFGFile%"
 echo GstRender.Thread.MaxProcessorCount %CPU_Threads% >> "%UserCFGFile%"
 if exist "%UserCFGFile%" (
     echo.
-    echo  =============================
-    echo   File user.cfg created!
-    echo  =============================
+    echo  ========================
+    echo   File user.cfg created! 
+    echo  ========================
     echo.
-    ) else (
     echo.
-    echo  =============================
-    echo   File user.cfg NOT created!
-    echo  =============================
     echo.
 )
 pause
